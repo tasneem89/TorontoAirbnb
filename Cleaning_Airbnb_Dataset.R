@@ -10,6 +10,8 @@ library(corrplot)
 library(modeest)
 library(viridis)
 library(hrbrthemes)
+library(GGally)
+
 #setting working directory
 setwd("C:/Users/a.elnazir/Desktop/Tasneem Alhilwa/Ryerson/Project/Airbnb Dataset")
 
@@ -22,7 +24,7 @@ airbnb = subset(airbnb, select = -c(listing_url,scrape_id,last_scraped,name,pict
 
 #Check for missing values
 sum(is.na(airbnb))
-gg_miss_var(airbnb)
+vis_miss(airbnb, sort_miss = T)
 
 #Fill/remove missing values
 airbnb$neighborhood_overview[is.na(airbnb$neighborhood_overview)] =0
