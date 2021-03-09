@@ -11,6 +11,9 @@ library(modeest)
 library(viridis)
 library(hrbrthemes)
 library(GGally)
+library(stringr)
+library(relaimpo)
+library(glmnet)
 
 #setting working directory
 setwd("C:/Users/a.elnazir/Desktop/Tasneem Alhilwa/Ryerson/Project/Airbnb Dataset")
