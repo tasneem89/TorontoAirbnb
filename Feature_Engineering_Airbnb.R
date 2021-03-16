@@ -87,7 +87,7 @@ mod_summary_stars[mod_summary_stars == "***"]
 
 amenity_top = subset(amenities_table, select = c("Crib","Private.living.room","Essentials","Essentials.1","Wifi.1","Lock.on.bedroom.door.1","Baby.safety.gates","First.aid.kit","Sound.system","Smoke.alarm.1","Washer.1","Paid.parking.on.premises","Hot.water.1","LG.refrigerator","Hangers.1","Dishes.and.silverware.1"))
 
-#Combine top amenities with dataset
+##Combine top amenities with dataset
 airbnb_final = cbind(airbnb_final,amenity_top)
 
 
