@@ -14,6 +14,8 @@ library(GGally)
 library(stringr)
 library(relaimpo)
 library(glmnet)
+library(e1071)
+library(randomForest)
 
 #setting working directory
 setwd("C:/Users/a.elnazir/Desktop/Tasneem Alhilwa/Ryerson/Project/Airbnb Dataset")
@@ -73,5 +75,5 @@ airbnb$bathrooms_text[is.na(airbnb$bathrooms_text)] = mfv(airbnb$bathrooms_text,
 airbnb$price = as.numeric(gsub(",", "", substring(airbnb$price, 2)))
 
 #Check for outliers in price (drop price =0  and >$1000)
-airbnb = airbnb[!airbnb$price ==0 & airbnb$price<1000 ,]
+airbnb = airbnb[!airbnb$price ==0 & airbnb$price<=500 ,]
 
