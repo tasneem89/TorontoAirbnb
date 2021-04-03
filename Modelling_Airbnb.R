@@ -11,14 +11,6 @@ trainindex = createDataPartition(airbnb_final$price ,p=0.80, list =F)
 train_df = airbnb_final[trainindex,]
 test_df =  airbnb_final[-trainindex,]
 
-#Scale the numeric data
-cols = names(airbnb_final)
-
-pre_proc_val <- preProcess(train_df[,cols], method = c("center", "scale"))
-
-train_df[,cols] = predict(pre_proc_val, train_df[,cols])
-test_df[,cols] = predict(pre_proc_val, test_df[,cols])
-
 #Cross-validation 
 ctrlspecs = trainControl(method = "cv", number = 10, savePredictions = "all", classProbs = TRUE)
 set.seed(1234)
@@ -66,7 +58,7 @@ ridge_reg = glmnet(x, y_train, nlambda = 25, alpha = 0, family = 'gaussian', lam
 #Model Information
 summary(ridge_reg)
 
-#Find Optimal Lambda = 0.019952
+#Find Optimal Lambda = 1.58
 cv_ridge <- cv.glmnet(x, y_train, alpha = 0, lambda = lambdas)
 optimal_lambda <- cv_ridge$lambda.min
 optimal_lambda
